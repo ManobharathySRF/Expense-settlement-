@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { MiscellaneousEntryPage } from '../..//pages/miscellaneous-entry.page';
+import { MiscellaneousEntryPage } from '../../pages/miscellaneous-entry.page';
 
 const testCases = getTestCasesByModule('Miscellaneous (MSC) Entry');
 

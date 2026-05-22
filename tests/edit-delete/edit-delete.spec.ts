@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { EditDeletePage } from '../..//pages/edit-delete.page';
+import { EditDeletePage } from '../../pages/edit-delete.page';
 
 const testCases = getTestCasesByModule('Edit/Delete Entry');
 

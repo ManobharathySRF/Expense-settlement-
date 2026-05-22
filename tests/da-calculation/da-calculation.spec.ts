@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { DaCalculationPage } from '../..//pages/da-calculation.page';
+import { DaCalculationPage } from '../../pages/da-calculation.page';
 
 const testCases = getTestCasesByModule('DA Calculation');
 

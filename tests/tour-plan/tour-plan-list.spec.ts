@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { TourPlanListPage } from '../..//pages/tour-plan-list.page';
+import { TourPlanListPage } from '../../pages/tour-plan-list.page';
 
 const testCases = getTestCasesByModule('Tour Plan List');
 

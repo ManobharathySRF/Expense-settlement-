@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { DocumentUploadPage } from '../..//pages/document-upload.page';
+import { DocumentUploadPage } from '../../pages/document-upload.page';
 
 const testCases = getTestCasesByModule('Document Upload');
 

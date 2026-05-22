@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { SettlementFormPage } from '../..//pages/settlement-form.page';
+import { SettlementFormPage } from '../../pages/settlement-form.page';
 
 const testCases = getTestCasesByModule('Settlement Form');
 

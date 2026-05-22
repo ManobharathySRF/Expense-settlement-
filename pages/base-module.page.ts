@@ -7,7 +7,6 @@ export class BaseModulePage {
 
   async executeTestCase(testCase: ExpenseSettlementTestCase): Promise<void> {
     await navigateToModule(this.page, this.moduleName);
-    await this.page.locator('[data-testid="result"]').textContent();
     await this.page.evaluate((payload) => {
       const result = document.querySelector('[data-testid="result"]');
       if (!result) {

@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { AccessibilityPage } from '../..//pages/accessibility.page';
+import { AccessibilityPage } from '../../pages/accessibility.page';
 
 const testCases = getTestCasesByModule('Accessibility');
 

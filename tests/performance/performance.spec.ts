@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { PerformancePage } from '../..//pages/performance.page';
+import { PerformancePage } from '../../pages/performance.page';
 
 const testCases = getTestCasesByModule('Performance');
 

@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { BusinessRulesPage } from '../..//pages/business-rules.page';
+import { BusinessRulesPage } from '../../pages/business-rules.page';
 
 const testCases = getTestCasesByModule('Business Rules');
 

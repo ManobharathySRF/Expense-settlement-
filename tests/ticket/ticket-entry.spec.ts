@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { TicketEntryPage } from '../..//pages/ticket-entry.page';
+import { TicketEntryPage } from '../../pages/ticket-entry.page';
 
 const testCases = getTestCasesByModule('Ticket (TKT) Entry');
 

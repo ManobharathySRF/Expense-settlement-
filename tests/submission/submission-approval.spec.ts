@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { SubmissionApprovalPage } from '../..//pages/submission-approval.page';
+import { SubmissionApprovalPage } from '../../pages/submission-approval.page';
 
 const testCases = getTestCasesByModule('Submission & Approval');
 

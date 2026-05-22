@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { AuthProfilePage } from '../..//pages/auth-profile.page';
+import { AuthProfilePage } from '../../pages/auth-profile.page';
 
 const testCases = getTestCasesByModule('Auth & Profile');
 

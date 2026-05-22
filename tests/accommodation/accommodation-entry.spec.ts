@@ -1,6 +1,6 @@
 import { test } from '../fixtures/auth.fixture';
 import { getTestCasesByModule } from '../utils/test-case-loader';
-import { AccommodationEntryPage } from '../..//pages/accommodation-entry.page';
+import { AccommodationEntryPage } from '../../pages/accommodation-entry.page';
 
 const testCases = getTestCasesByModule('Accommodation (STY) Entry');
 
