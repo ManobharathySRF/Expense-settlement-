@@ -1,0 +1,134 @@
+S.No,Module Name,Test Scenario,Test Case Description,Expected Result,Priority,Test Type
+1,Auth & Profile,Grade/Band Resolution,Verify system resolves authenticated employee's grade band and promoter flag on page load,Employee profile attributes (grade band promoter flag) are correctly loaded and displayed,P0 Critical,Functional
+2,Auth & Profile,Policy Assignment - Officer,Login as M-band employee and verify Officer policy (SRF/PP/23/2.1) is applied,Officer entitlements DA rates and rules are enforced,P0 Critical,Functional
+3,Auth & Profile,Policy Assignment - NMS,Login as NMS staff/JO employee and verify HO/NMS policy is applied,NMS entitlements flat DA rates and rules are enforced,P0 Critical,Functional
+4,Auth & Profile,Promoter Flag Detection,Login as promoter-flagged employee,Promoter flag is detected and entitlement caps are bypassed,P0 Critical,Functional
+5,Auth & Profile,IDOR Prevention,Attempt to access another employee's Tour Plan via direct URL manipulation,HTTP 403 returned and no data displayed for other employee's records,P0 Critical,Security
+6,Tour Plan List,Approved TPs Displayed,Verify only approved Tour Plans with pending settlement status are listed,Only approved pending-settlement TPs appear in the list,P0 Critical,Functional
+7,Tour Plan List,Submitted TP Non-Selectable,Attempt to select a TP with status Submitted or Approved,TP is greyed out or not selectable for new expense entry,P0 Critical,Functional
+8,Tour Plan List,TP Display Details,Verify each TP shows TP Number Travel Dates Destination Status Days on Tour,All five fields are displayed correctly,P1 High,Functional
+9,Tour Plan List,Deadline Countdown - Officer,Login as Officer and view TP list for a TP with 10 days remaining of 30-day deadline,Countdown or indicator shows days remaining,P1 High,Functional
+10,Tour Plan List,Deadline Countdown - NMS,Login as NMS employee and view TP with 3 days remaining of 7-day deadline,Countdown or indicator shows days remaining,P1 High,Functional
+11,Tour Plan List,Overdue Warning Banner,Open settlement form for a TP past the submission deadline,Warning banner displayed indicating deadline has passed,P1 High,Functional
+12,Tour Plan List,Draft/Rejected TP Hidden,Create a TP in Draft or Rejected status,TP does not appear in expense entry screen list,P0 Critical,Functional
+13,Ticket (TKT) Entry,Required Fields Validation,Leave From City To City Travel Mode Date or Amount blank and try to save,Field-level error - This field is required - shown and save blocked,P0 Critical,Validation
+14,Ticket (TKT) Entry,Valid Entry Save,Fill all mandatory fields with valid data and save,Entry saved successfully,P0 Critical,Functional
+15,Ticket (TKT) Entry,Self-Booking Surcharge,Enter a self-booked ticket where company did not book,Rs.50 surcharge automatically added to ticket amount,P1 High,Functional
+16,Ticket (TKT) Entry,Road/Self-Drive Bill Flag,Select Road or Self-Drive as mode of travel,Bill flag automatically set to Y,P1 High,Functional
+17,Ticket (TKT) Entry,Travel Class Within Entitlement (M1-M3),M1-M3 employee selects Economy air or III AC train,Entry accepted and saved,P0 Critical,Functional
+18,Ticket (TKT) Entry,Travel Class Exceeds Entitlement (M1-M3),M1-M3 employee selects Business Class air,Hard block - Selected travel class is not within your entitlement,P0 Critical,Validation
+19,Ticket (TKT) Entry,Air Travel 8-Hour Rule (M1-M3),M1-M3 employee selects air travel without 8-hour alternate mode justification,Soft warning displayed about 8-hour rule,P1 High,Validation
+20,Ticket (TKT) Entry,Travel Class - NMS Staff,NMS Staff employee attempts to select air travel,Hard block - air travel not entitled,P0 Critical,Validation
+21,Ticket (TKT) Entry,Travel Class - NMS JO1,JO1 employee selects 3rd AC Sleeper or Deluxe Bus,Entry saved successfully,P0 Critical,Functional
+22,Ticket (TKT) Entry,Mode Deviation with Approval Ref,Select higher class than entitlement with Process Head approval reference number,Entry saved and flagged for elevated approval,P1 High,Functional
+23,Ticket (TKT) Entry,Mode Deviation without Approval Ref,Select higher class than entitlement without approval reference,System requires approval reference number,P1 High,Validation
+24,Ticket (TKT) Entry,Expense Date Outside Tour Period,Enter a travel date outside the TP start/end range,Hard block - Expense date must be within your tour period,P0 Critical,Validation
+25,Ticket (TKT) Entry,Amount Zero or Negative,Enter amount as 0 or -500,Hard block - Please enter a valid amount,P0 Critical,Validation
+26,Ticket (TKT) Entry,Amount Exceeds Max,Enter amount greater than Rs.9999999,Hard block - Please enter a valid amount,P0 Critical,Validation
+27,Accommodation (STY) Entry,Required Fields Validation,Leave City Stay Type Check-in Check-out or Cost blank,Field-level error shown and save blocked,P0 Critical,Validation
+28,Accommodation (STY) Entry,Check-out Before Check-in,Enter check-out date earlier than check-in date,Hard block - Check-out must be after check-in date,P0 Critical,Validation
+29,Accommodation (STY) Entry,Cost Within Limit - M1-M3 A+ City,Enter Rs.5500/night for M1-M3 band in A+ city (Mumbai/Delhi),Entry saved successfully,P0 Critical,Functional
+30,Accommodation (STY) Entry,Cost Exceeds Limit - M1-M3 A+ City,Enter Rs.6000/night for M1-M3 band in A+ city,Hard block - Amount exceeds your accommodation entitlement of Rs.5500 for this city,P0 Critical,Validation
+31,Accommodation (STY) Entry,Cost Within Limit - M4-M5 A City,Enter Rs.7000/night for M4-M5 band in A city (Jaipur/Lucknow),Entry saved successfully,P0 Critical,Functional
+32,Accommodation (STY) Entry,Cost Within Limit - M6-M7 B City,Enter Rs.7000/night for M6-M7 band in B city,Entry saved successfully,P0 Critical,Functional
+33,Accommodation (STY) Entry,Corporate Tie-Up Hotel Bypass,Select a corporate tie-up hotel with cost exceeding band limit,Entry saved without limit check,P0 Critical,Functional
+34,Accommodation (STY) Entry,Promoter Employee Bypass,Promoter-flagged employee enters cost exceeding standard limit,Entry saved and entitlement caps bypassed,P0 Critical,Functional
+35,Accommodation (STY) Entry,Own Arrangement Stay,Select Own Arrangement as stay type,Flat allowance applicable per DA table,P1 High,Functional
+36,Cab (CAB) Entry,Valid Entry,Enter Date Mode of Transport and Cost within tour period,Entry saved successfully,P0 Critical,Functional
+37,Cab (CAB) Entry,Full-Day Taxi - M1-M3 No Justification,M1-M3 employee selects full-day taxi without adding justification remarks,Soft warning - Full-day taxi for your band requires a justification,P1 High,Validation
+38,Cab (CAB) Entry,Full-Day Taxi - M1-M3 With Justification,M1-M3 employee selects full-day taxi and adds justification,Entry saved with warning acknowledged,P1 High,Functional
+39,Cab (CAB) Entry,Full-Day Taxi - M4-M7,M4-M7 employee selects full-day taxi,Entry saved without restriction,P0 Critical,Functional
+40,Cab (CAB) Entry,Amount Zero,Enter cost as Rs.0,Hard block - Enter a valid amount greater than zero,P0 Critical,Validation
+41,Cab (CAB) Entry,Date Outside Tour Period,Enter a cab date outside TP date range,Hard block - Expense date must be within your tour period,P0 Critical,Validation
+42,Miscellaneous (MSC) Entry,Valid Entry,Enter Date reimbursable Expense Type and Cost,Entry saved successfully,P0 Critical,Functional
+43,Miscellaneous (MSC) Entry,Non-Reimbursable Type - Alcohol,Select Alcohol (Self) as expense type,Hard block - This expense type is not reimbursable under company policy,P0 Critical,Validation
+44,Miscellaneous (MSC) Entry,Non-Reimbursable Type - Cigarettes,Select Cigarettes (Self) as expense type,Hard block - This expense type is not reimbursable under company policy,P0 Critical,Validation
+45,Miscellaneous (MSC) Entry,12-Hour Train Meal Allowance,Enter meal allowance for 12-hr train journey,Rs.150/day meal allowance permitted,P1 High,Functional
+46,Miscellaneous (MSC) Entry,Train Snacks/Water Only,Enter meal allowance for train providing snacks/water,Only Rs.50 allowance permitted,P1 High,Functional
+47,Miscellaneous (MSC) Entry,Book Allowance - Long Distance,Enter book allowance for greater than 250 km trip,Rs.500 on initiation plus Rs.500 per 7-day period allowed,P1 High,Functional
+48,Miscellaneous (MSC) Entry,Entertainment - Non-Employee with BLT Ref,Enter entertainment for non-company employees with BLT approval reference,Entry saved with reference,P1 High,Functional
+49,Miscellaneous (MSC) Entry,Entertainment - Non-Employee without BLT Ref,Enter entertainment for non-company employees without BLT reference,System requires approval reference number,P1 High,Validation
+50,Miscellaneous (MSC) Entry,Training Trip - MSC Entry Blocked,Trip type is Training and attempt to add misc self-expense,Entry blocked as company bears all costs,P2,Business Rule
+51,Document Upload,Valid PDF Upload,Upload a PDF file less than 1 MB,File uploaded successfully,P0 Critical,Functional
+52,Document Upload,Valid JPG Upload,Upload a JPG file less than 1 MB,File uploaded successfully,P0 Critical,Functional
+53,Document Upload,Valid PNG Upload,Upload a PNG file less than 1 MB,File uploaded successfully,P0 Critical,Functional
+54,Document Upload,Invalid File Type - DOCX,Upload a .docx file,Hard block - Only PDF JPG JPEG and PNG files are allowed,P0 Critical,Validation
+55,Document Upload,Invalid File Type - ZIP,Upload a .zip file,Hard block - Only PDF JPG JPEG and PNG files are allowed,P0 Critical,Validation
+56,Document Upload,Invalid File Type - XLSX,Upload a .xlsx file,Hard block - Only PDF JPG JPEG and PNG files are allowed,P0 Critical,Validation
+57,Document Upload,File Size Exceeds 1 MB,Upload a 2 MB PDF file,Hard block - File size must not exceed 1 MB,P0 Critical,Validation
+58,Document Upload,Max 2 Files - Third File Rejected,Upload 2 files successfully then attempt a third,Third file rejected - A maximum of 2 documents can be attached per entry,P0 Critical,Validation
+59,Document Upload,Server-Side MIME Validation,Rename a .exe file to .pdf and upload,Server rejects file after MIME/magic byte validation,P0 Critical,Security
+60,Document Upload,Blob Merge on Save,Save an expense entry with 2 uploaded files,Files merged into a single PDF in Azure Blob Storage,P0 Critical,Functional
+61,DA Calculation,Full Day DA (>12 hrs),Tour duration greater than 12 hours but less than 24 hours,Full DA payable for that block,P0 Critical,Functional
+62,DA Calculation,Half DA (>6 hrs and <=12 hrs),Tour fraction greater than 6 hours but less than or equal to 12 hours,Half DA payable,P0 Critical,Functional
+63,DA Calculation,No DA (<=6 hrs),Tour fraction less than or equal to 6 hours,No DA payable (Rs.0),P0 Critical,Functional
+64,DA Calculation,Exact 24 Hours,Tour duration exactly 24 hours,1 full day DA payable,P0 Critical,Functional
+65,DA Calculation,Leave Deduction - Full Day,Approved full-day leave during tour,DA deducted for each full leave day,P0 Critical,Functional
+66,DA Calculation,Leave Deduction - Partial Day,Approved half-day leave during tour,DA deducted proportionally,P0 Critical,Functional
+67,DA Calculation,Company Hotel - DA Reduced,Company provides hotel stay,DA reduced and only food component payable,P0 Critical,Functional
+68,DA Calculation,Company Boarding + Lodging,Company provides both boarding and lodging,Only 25% of flat DA rate payable,P0 Critical,Functional
+69,DA Calculation,Stay >20 Days Same Station,25-day stay at same station,Days 1-20: 100% DA and Days 21-25: 75% DA,P1 High,Functional
+70,DA Calculation,Guest House Stay,Employee stays in company guest house,Misc allowance (Rs.100-Rs.200/day by band) plus full DA for food,P1 High,Functional
+71,DA Calculation,NMS Flat Rate DA,NMS employee on tour,Flat per-day DA rate applied per cadre x city tier,P0 Critical,Functional
+72,DA Calculation,NMS - Company Lodging Provided,NMS employee and company provides boarding/lodging,Only 25% of flat rate payable,P0 Critical,Functional
+73,DA Calculation,Personal Extension Days Excluded,Employee marks 3 days as personal extension,No DA for those 3 days and excluded from DA count,P1 High,Functional
+74,DA Calculation,DA Config Missing,Employee grade/location has no DA rules configured,Settlement form disabled - Daily Allowance rules are not configured for your grade/location,P0 Critical,Negative
+75,DA Calculation,DA Recalculation Speed,Change input affecting DA calculation,Recalculation completes within 500 ms,P1 High,Performance
+76,DA Calculation,Train Journey >12 Hours,Overnight long-distance train journey,Rs.150 misc for train meals plus normal DA calculation,P1 High,Functional
+77,Settlement Form,Tour Plan Details Loaded,Open settlement form for an approved TP,TP dates purpose origin destination and trip outcome field displayed,P0 Critical,Functional
+78,Settlement Form,Company Booking Grid Displayed,TP has company-booked tickets/hotels,Pre-booked items shown with approved amounts and amount field editable,P0 Critical,Functional
+79,Settlement Form,Company Booking Amount Edit,Edit approved amount on a company booking line,Changed amount flows into balance calculation,P0 Critical,Functional
+80,Settlement Form,Self Expense Totals Displayed,Multiple self expenses entered across categories,Aggregated totals by TKT STY CAB MSC displayed,P0 Critical,Functional
+81,Settlement Form,Balance - Positive (Payable),Self expenses plus DA exceed travel advance,Positive balance shown as payable to employee,P0 Critical,Functional
+82,Settlement Form,Balance - Negative (Recoverable),Travel advance exceeds self expenses plus DA,Negative balance shown as recoverable from employee,P0 Critical,Functional
+83,Settlement Form,Balance - Multiple Advances,Two advances drawn against one TP,Both advances summed and deducted in balance,P0 Critical,Functional
+84,Settlement Form,Zero Self Expenses,Submit with no self expenses and only advance taken,Balance = 0 minus Advance = negative and warning displayed and submission succeeds,P1 High,Edge Case
+85,Settlement Form,On-Duty Auto-Population,Open settlement form,On-duty date range auto-populated from TP travel dates,P1 High,Functional
+86,Settlement Form,On-Duty Dates Editable,Modify auto-populated on-duty dates,Dates are editable within TP range,P1 High,Functional
+87,Settlement Form,On-Duty Dates Outside TP,Enter on-duty dates outside Tour Plan range,Hard block - On-duty dates must be within your tour period,P0 Critical,Validation
+88,Settlement Form,Tour End Date Missing,TP has no end date set,End date field shown and required before save/submit,P0 Critical,Validation
+89,Settlement Form,Cost Centre Default,Open settlement form,Cost centre fields defaulted from employee profile,P1 High,Functional
+90,Settlement Form,Cost Centre Multi-Split - Valid,Split across 2 cost centres totalling 100%,Saved successfully,P2,Functional
+91,Settlement Form,Cost Centre Multi-Split - Invalid,Split across 2 cost centres totalling 80%,Hard block - Cost centre allocations must total 100%,P2,Validation
+92,Settlement Form,Save as Draft,Fill partial data and click Save Draft,Settlement saved with Draft status and data persists on return,P0 Critical,Functional
+93,Settlement Form,Reporting Manager Displayed,Open settlement form,Name and designation of Reporting Manager shown,P1 High,Functional
+94,Settlement Form,Duplicate Expense Warning,Enter expense with same category date and amount as existing,Soft warning - A similar expense entry already exists. Do you want to continue?,P1 High,Validation
+95,Settlement Form,Settlement End Date Before Start,Enter settlement end date before start date,Hard block - Settlement end date cannot be before start date,P0 Critical,Validation
+96,Submission & Approval,Successful Submit,Fill all required fields pass all validations and submit,Status changes to Pending Approval and email sent to manager and form becomes read-only,P0 Critical,Functional
+97,Submission & Approval,Pending Leave Blocks Submit,Attempt submit with pending leave records during tour,Hard block - Resolve pending leave records before submitting,P0 Critical,Validation
+98,Submission & Approval,DA Days Negative,Scenario causing negative DA days,Hard block - DA days cannot be negative,P0 Critical,Validation
+99,Submission & Approval,Email Content Verification,Submit settlement and verify email sent to manager,Email includes Employee Name ID TP Number Tour Dates Total Claimed Amount and Balance,P1 High,Functional
+100,Submission & Approval,Email Failure Handling,Submit when email service is down,Settlement saved as Pending Approval and email failure logged and retry attempted and employee sees success,P1 High,Edge Case
+101,Submission & Approval,Mode Deviation Flag in Email,Submit with a ticket exceeding entitled class,Approval notification to manager flags mode deviation,P1 High,Functional
+102,Submission & Approval,Edit After Submit Blocked,After settlement submitted attempt to edit/delete expense,Edit/Delete buttons disabled and read-only view shown,P0 Critical,Functional
+103,Submission & Approval,Rejection - Returns to Draft,Manager rejects settlement,Status returns to Draft and form becomes editable again,P0 Critical,Functional
+104,Submission & Approval,Approved - Read Only,Manager approves settlement,Status changes to Approved and form is permanently read-only,P0 Critical,Functional
+105,Submission & Approval,Document Merge on Submit,Submit settlement with multiple self-expense documents,All documents merged and uploaded to Azure Blob Storage,P0 Critical,Functional
+106,Submission & Approval,Company Booking Deemed Approved,Settlement has company-booked line items,Company bookings do not trigger separate approval step,P1 High,Functional
+107,Security,Unauthenticated API Call,Call API endpoint without JWT token,HTTP 401 returned,P0 Critical,Security
+108,Security,Expired JWT Token,Call API with expired Azure AD JWT,HTTP 401 returned,P0 Critical,Security
+109,Security,IDOR - Tour Plan Access,Access another employee's TP via direct API call with different TP ID,HTTP 403 returned and no data exposed,P0 Critical,Security
+110,Security,IDOR - Expense Entry Access,Access another employee's expense entry via direct API,HTTP 403 returned,P0 Critical,Security
+111,Security,SQL Injection Prevention,Enter SQL injection payload in amount/text fields,Parameterised stored procedures prevent injection and no data leak,P0 Critical,Security
+112,Security,Response Headers Check,Inspect API response headers,X-Content-Type-Options: nosniff and X-Frame-Options: DENY present,P1 High,Security
+113,Security,Sensitive Data Not Logged,Check application logs after settlement submission,Expense amounts and financial data not in cleartext logs,P1 High,Security
+114,Performance,Form Load Time,Load settlement form with all data on 4G network,Completes in less than 3 seconds,P1 High,Performance
+115,Performance,Save with Upload,Save expense entry with 1 MB document,Completes in less than 5 seconds,P1 High,Performance
+116,Performance,Submit with Blob Upload,Submit full settlement with all documents,Completes in less than 8 seconds,P1 High,Performance
+117,Performance,Balance Recomputation,Change an amount field and observe balance update,Instant update (client-side real-time),P1 High,Performance
+118,Accessibility,Screen Reader Labels,Navigate form with screen reader,All fields have visible labels and ARIA attributes,P1 High,Accessibility
+119,Accessibility,Error Focus Management,Submit form with validation errors,Focus moves to first error field and error announced via aria-live,P1 High,Accessibility
+120,Accessibility,Keyboard Navigation,Tab through all interactive elements,All buttons links inputs reachable via keyboard,P1 High,Accessibility
+121,Accessibility,Touch Target Size,Inspect interactive elements on mobile,Minimum touch target size 44x44 px,P1 High,Accessibility
+122,Responsiveness,Mobile 360px Width,View all screens at 360px viewport width,Layout usable and tables scrollable and touch targets adequate,P1 High,UI
+123,Responsiveness,Mobile 390px Width (iPhone 14),View all screens at 390px viewport width,Layout usable and functional,P1 High,UI
+124,Responsiveness,Dark Mode - All Screens,Switch to dark theme and verify all primary screens,All screens chips tables form fields correctly coloured and readable,P1 High,UI
+125,Responsiveness,Offline Read Mode,Disconnect network and view cached Tour Plans,Cached TPs visible in read-only mode,P1 High,Functional
+126,Responsiveness,Submit Requires Connectivity,Attempt to submit settlement while offline,Submit fails gracefully with connectivity error message,P1 High,Functional
+127,Edit/Delete Entry,Edit Pre-Submitted Entry,Edit a previously saved expense entry before submission,Entry updated successfully,P0 Critical,Functional
+128,Edit/Delete Entry,Delete Entry with Confirmation,Delete a saved expense entry,Confirmation dialog shown and entry deleted on confirm,P0 Critical,Functional
+129,Edit/Delete Entry,No Edit After Submit,Attempt to edit expense after settlement is in Pending Approval,Edit button disabled and read-only view,P0 Critical,Functional
+130,Edit/Delete Entry,No Delete After Submit,Attempt to delete expense after settlement is in Pending Approval,Delete button disabled,P0 Critical,Functional
+131,Business Rules,2 Pending Settlements Block New TP,Employee has 2 TPs in Pending Settlement status and tries to create new TP,New TP creation blocked,P1 High,Business Rule
+132,Business Rules,Personal Extension - Family Expense Not Submitted,Mark days as personal extension and attempt to claim family expenses,Family expenses not reimbursable and blocked or excluded,P2,Business Rule
+133,Business Rules,Exceeds Entitlement - Flagged Not Blocked,Self-expense claim exceeds entitlement limit (non-accommodation),Flagged for elevated scrutiny but submission not blocked,P1 High,Business Rule
